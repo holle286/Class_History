@@ -1,5 +1,0 @@
-==5908== Memcheck, a memory error detector
-==5908== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==5908== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==5908== Command: ../bl_server test-06-serv
-==5908== 

@@ -1,5 +1,0 @@
-==6192== Memcheck, a memory error detector
-==6192== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==6192== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==6192== Command: ../bl_server test-04-serv
-==6192== 

@@ -1,0 +1,8 @@
+prefix=/home/csci5551/Desktop/jason_project/ros_ws/install
+
+Name: baxter_measure_zero_point
+Description: Description of baxter_measure_zero_point
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/csci5551/Desktop/jason_project/ros_ws/install/lib 
+Requires: 

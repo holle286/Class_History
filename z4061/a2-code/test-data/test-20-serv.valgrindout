@@ -1,5 +1,0 @@
-==6009== Memcheck, a memory error detector
-==6009== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==6009== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==6009== Command: ../bl_server test-20-serv
-==6009== 

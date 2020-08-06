@@ -1,0 +1,8 @@
+prefix=/home/csci5551/Desktop/jason_project/ros_ws/install
+
+Name: iri_wam_moveit_config
+Description: Description of iri_wam_moveit_config
+Version: 1.1.1
+Cflags: 
+Libs: -L/home/csci5551/Desktop/jason_project/ros_ws/install/lib 
+Requires: 

@@ -1,0 +1,8 @@
+prefix=/home/csci5551/Desktop/jason_project/ros_ws/install
+
+Name: baxter_measure_table
+Description: Description of baxter_measure_table
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/csci5551/Desktop/jason_project/ros_ws/install/lib -lbaxter_measure_table
+Requires: OpenCv roscpp sensor_msg/Image

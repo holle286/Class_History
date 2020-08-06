@@ -1,0 +1,8 @@
+prefix=/home/csci5551/Desktop/jason_project/ros_ws/install
+
+Name: baxter_config
+Description: Description of baxter_config
+Version: 0.3.0
+Cflags: 
+Libs: -L/home/csci5551/Desktop/jason_project/ros_ws/install/lib 
+Requires: 

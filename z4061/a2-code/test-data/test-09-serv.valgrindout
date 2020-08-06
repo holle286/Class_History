@@ -1,5 +1,0 @@
-==5929== Memcheck, a memory error detector
-==5929== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==5929== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==5929== Command: ../bl_server test-09-serv
-==5929== 

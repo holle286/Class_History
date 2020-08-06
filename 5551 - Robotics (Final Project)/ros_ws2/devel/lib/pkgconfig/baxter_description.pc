@@ -1,0 +1,8 @@
+prefix=/home/csci5551/Desktop/jason_project/ros_ws2/devel
+
+Name: baxter_description
+Description: Description of baxter_description
+Version: 1.2.0
+Cflags: 
+Libs: -L/home/csci5551/Desktop/jason_project/ros_ws2/devel/lib 
+Requires: 

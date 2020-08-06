@@ -1,5 +1,0 @@
-==6001== Memcheck, a memory error detector
-==6001== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==6001== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==6001== Command: ../bl_server test-19-serv
-==6001== 
