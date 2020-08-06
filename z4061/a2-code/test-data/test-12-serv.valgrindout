@@ -1,0 +1,5 @@
+==5950== Memcheck, a memory error detector
+==5950== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==5950== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==5950== Command: ../bl_server test-12-serv
+==5950== 

@@ -1,0 +1,13 @@
+import numpy
+
+px0 = [.3,.3,.3]
+pe_x = [0,.05,.4]
+p_e_x = [1,.95,.6]
+
+N = 100
+
+def main():
+    numpy.random.choice(numpy.arrange(1,100), px0)
+
+
+

@@ -1,0 +1,114 @@
+                           __________________
+
+                            LAB 11 QUESTIONS
+                           __________________
+
+
+- Name: (FILL THIS in)
+- NetID: (THE kauf095 IN kauf0095@umn.edu)
+
+Answer the questions below according to the lab specification. Write
+your answers directly in this text file and submit it to complete Lab01.
+
+
+PROBLEM 1: The Setup
+====================
+
+A
+~
+
+  Compile and run `worm_pthread.c' using the provided Makefile. Make
+  sure to follow the program prompts.  Describe what you observe. Also
+  do brief research and find out what the Unix command `watch' does and
+  how it is used with this program.
+
+Watch runs a command repeatedly displaying it output, you can set the number of times a second that the command runs when you use watch.
+The worm_pthread runs until all values are 99 and the capital letters are moving around in their respective areas.
+B
+~
+
+  Consult the structure of the `main()' function. Determine how changes
+  to the file `worm_board.txt' are made. What special tricks are used to
+  make it relatively easy to change the file AND to change specific
+  portions of the file.
+
+They use mmap and set file_bytes equal to whatever the board value should be, using fidx to find the correct location on the board
+
+C
+~
+
+  Describe the area of code in `main()' which creates threads and awaits
+  them finishing.
+  - Describe the function which is used to start a thread running and
+    its arguments. Consult the manual for documentation on this function
+    if needed.
+  - Describe the function which is used to wait until a thread finishes.
+
+pthread_t creates the type and then pthread_create creates the thread for each worm_thread in the array, pthread_join is the function that waits until all children are finished
+
+PROBLEM 2: The Worms
+====================
+
+A
+~
+
+  Examine the `worm_func()' function carefully.  You may wish to
+  consider the specific data passed to these worms which are in the
+  array of `wormparam_t' structs midway through `main()'.
+
+  Describe the basic algorithm that worms follow to do their work.
+
+place the worm on some initial row and column, and then they have 4 possible moves, randomly choos one and check to see if it is a valid move, if it is, claim it, if it isn't loop back and choose another direction. Everytime new location is found make old location the lower case territory and lock new position. Sleep until next move happens.
+
+
+B
+~
+
+  Describe how worms avoid both claiming the same piece of
+  territory. What system call mechanism is used to ensure that two worms
+  cannot claim the same area of the board? Describe the function calls
+  that are used to accomplish this and what functions in `main()' are
+  used to set up this coordination mechanism.
+
+making sure the board at the row,col coord is a '.' and if it isn't then loop back and find a valid move that is a '.', columns are calculated through rows and cols inital state plus the random move that was selected. The main function open opens the worm_board and then board size int is calculated from max_rows and max_columns, which allows for calculating the location of the worm with [row][col].
+
+
+C
+~
+
+  Describe the logic that appears to cause worms to be 'fast' and
+  'slow': how is this artificial speed actually created in the
+  `worm_func()' code.
+
+The delay function when creating the worms determines the speed, the lower the delay, the faster the worm.
+
+  While the speed differences of worms is an intended creation of the
+  program, speculate as to what use threads can be when dealing with
+  entities of different speeds.
+
+Threads will only run one at a time so when different entities are running at different speeds it allows for the threads to do each function in order, or the threads can be locked and have the slower entities catch up to the faster ones with proper locks.
+
+
+Optional Enrichment: Threads in Python
+======================================
+
+  Threads are not unique to C and the Pthreads library. Most modern
+  programming environments include some version of them. The prototype
+  version of the worms program was written in Python and can be found in
+  `worms.py' and can be run via
+  ,----
+  | > ./worms.py
+  `----
+  - No territory or step numbers are tracked in the Python version; it
+    runs until Ctrl-c is pressed
+  - This version does not use a memory mapped file instead showing the
+    board on the console.
+  - The `curses' library is used to manipulate the terminal screen which
+    allows for boxes and color to be used but complicates the
+    implementation somewhat.
+  - Python features several types of mutual exclusion locks including
+    one used here that can be re-locked by the same thread without
+    negative effects.
+
+  Time permitting, explore the code of `worms.py' and draw some
+  parallels as to the C code.

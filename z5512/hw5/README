@@ -1,0 +1,5 @@
+So it should run just fine on python 2 with "python hw5.py", if you need to change the name of the file that is being used, change the string on line 17 to the correct name and it should work, but as of me turning it in its "inTree.csv", which is what the hw says it should be.
+
+The display has index 0 empty, and the remaining elements represent either the split, the true or false value, or just empty space.
+
+I didn't comment my code, but the general strategy is to create a 2d array of each column in the csv (exluding example). I leave output to its own seperate variable and then call maketree with that function, the output, and the index of 1 since thats the starting point. From there i check if the output has all 1s or all 0s and if it does, then I end that branch. Otherwise I calculate entropy of the start, then I iterate through my array of columns and find the best gain, and split on that. I create a new array and output based on that split and recurse(?) through the right branch and then left branch.

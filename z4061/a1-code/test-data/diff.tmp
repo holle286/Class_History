@@ -1,0 +1,94 @@
+***EXPECT OUTPUT***			      |	***ACTUAL OUTPUT***
+@> cat test-data/quote.txt		      <
+@> test-data/table.sh 20 2		      <
+@> sleep 2				      <
+@> cat test-data/gettysburg.txt		      <
+@> grep printf test-data/print_args.c	      <
+@> pause 500000000 0			      <
+@> list					      <
+JOB  #PID      STAT   STR_STAT OUTB COMMAND   <
+0    %0           0    EXIT(0)  125 cat test- <
+1    %3          -1        RUN   -1 test-data <
+2    %4          -1        RUN   -1 sleep 2   <
+3    %1           0    EXIT(0) 1511 cat test- <
+4    %2           0    EXIT(0)   71 grep prin <
+@> output-all				      <
+@<<< Output for cat[%0] (125 bytes):	      <
+----------------------------------------      <
+Object-oriented programming is an exceptional	Object-oriented programming is an exceptional
+only have originated in California.		only have originated in California.
+
+-- Edsger Dijkstra				-- Edsger Dijkstra
+----------------------------------------      <
+@<<< Output for test-data/table.sh[%3] (-1 by <
+----------------------------------------      <
+test-data/table.sh[%3] : output not ready     <
+----------------------------------------      <
+@<<< Output for sleep[%4] (-1 bytes):	      <
+----------------------------------------      <
+sleep[%4] : output not ready		      <
+----------------------------------------      <
+@<<< Output for cat[%1] (1511 bytes):	      <
+----------------------------------------      <
+Four score and seven years ago our fathers br	Four score and seven years ago our fathers br
+continent, a new nation, conceived in Liberty	continent, a new nation, conceived in Liberty
+proposition that all men are created equal.	proposition that all men are created equal.
+
+Now we are engaged in a great civil war, test	Now we are engaged in a great civil war, test
+or any nation so conceived and so dedicated, 	or any nation so conceived and so dedicated, 
+met on a great battle-field of that war. We h	met on a great battle-field of that war. We h
+portion of that field, as a final resting pla	portion of that field, as a final resting pla
+gave their lives that that nation might live.	gave their lives that that nation might live.
+and proper that we should do this.		and proper that we should do this.
+
+But, in a larger sense, we can not dedicate -	But, in a larger sense, we can not dedicate -
+-- we can not hallow -- this ground. The brav	-- we can not hallow -- this ground. The brav
+who struggled here, have consecrated it, far 	who struggled here, have consecrated it, far 
+add or detract. The world will little note, n	add or detract. The world will little note, n
+say here, but it can never forget what they d	say here, but it can never forget what they d
+living, rather, to be dedicated here to the u	living, rather, to be dedicated here to the u
+who fought here have thus far so nobly advanc	who fought here have thus far so nobly advanc
+to be here dedicated to the great task remain	to be here dedicated to the great task remain
+from these honored dead we take increased dev	from these honored dead we take increased dev
+which they gave the last full measure of devo	which they gave the last full measure of devo
+highly resolve that these dead shall not have	highly resolve that these dead shall not have
+this nation, under God, shall have a new birt	this nation, under God, shall have a new birt
+government of the people, by the people, for 	government of the people, by the people, for 
+perish from the earth.				perish from the earth.
+
+Abraham Lincoln					Abraham Lincoln
+November 19, 1863				November 19, 1863
+----------------------------------------      <
+@<<< Output for grep[%2] (71 bytes):	      <
+----------------------------------------      <
+  printf("%d args received\n",argc);		  printf("%d args received\n",argc);
+    printf("%d: %s\n",i,argv[i]);		    printf("%d: %s\n",i,argv[i]);
+----------------------------------------      |	@> cat test-data/quote.txt
+@> wait-all				      |	@> test-data/table.sh 20 2
+					      >	@> sleep 2
+					      >	@> cat test-data/gettysburg.txt
+					      >	@> grep printf test-data/print_args.c
+					      >	@> pause 500000000 0
+					      >	@> list
+					      >	JOB  #PID      STAT   STR_STAT OUTB COMMAND
+					      >	0    %0           0    EXIT(0)  125 cat test-
+					      >	1    %3          -1        RUN   -1 test-data
+					      >	2    %4          -1        RUN   -1 sleep 2 
+					      >	3    %1           0    EXIT(0) 1511 cat test-
+					      >	4    %2           0    EXIT(0)   71 grep prin
+					      >	@> output-all
+					      >	test-data/table.sh[%3] : output not readyslee
+@> list						@> list
+JOB  #PID      STAT   STR_STAT OUTB COMMAND	JOB  #PID      STAT   STR_STAT OUTB COMMAND
+0    %0           0    EXIT(0)  125 cat test-	0    %0           0    EXIT(0)  125 cat test-
+1    %3           0    EXIT(0)  760 test-data	1    %3           0    EXIT(0)  760 test-data
+2    %4           0    EXIT(0)    0 sleep 2 	2    %4           0    EXIT(0)    0 sleep 2 
+3    %1           0    EXIT(0) 1511 cat test-	3    %1           0    EXIT(0) 1511 cat test-
+4    %2           0    EXIT(0)   71 grep prin	4    %2           0    EXIT(0)   71 grep prin
+@> exit						@> exit
+ALERTS:						ALERTS:
+@!!! cat[%0]: EXIT(0)				@!!! cat[%0]: EXIT(0)
+@!!! cat[%1]: EXIT(0)				@!!! cat[%1]: EXIT(0)
+@!!! grep[%2]: EXIT(0)				@!!! grep[%2]: EXIT(0)
+@!!! test-data/table.sh[%3]: EXIT(0)		@!!! test-data/table.sh[%3]: EXIT(0)
+@!!! sleep[%4]: EXIT(0)				@!!! sleep[%4]: EXIT(0)

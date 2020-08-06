@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title> My Widgets </title>
+  </head>
+  <body>
+    <nav>
+      <p> <a href = "contacts.html">My Places </a> </p>
+      <p> <a href = "widgets.html">My Widgets </a> </p>
+    </nav>
+    <ol>
+      <li> <p> My Youtube Widget </p> <iframe width="500" height="350"
+src="https://www.youtube.com/embed/videoseries?list=PLFsQleAWXsj_4yDeebiIADdH5FMayBiJo"
+ allow="utoplay; encrypted-media" allowfullscreen></iframe></li>
+      <li> My Twitter Widget <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Join us and vote <a href="https://twitter.com/RobbieGould09?ref_src=twsrc%5Etfw">@RobbieGould09</a> for the NFL Walter Payton Man of the Year <a href="https://twitter.com/hashtag/WPMOYChallengeGould?src=hash&amp;ref_src=twsrc%5Etfw">#WPMOYChallengeGould</a></p>&mdash; Jimmy Garoppolo (@JimmyG_10) <a href="https://twitter.com/JimmyG_10/status/1072885835542913024?ref_src=twsrc%5Etfw">December 12, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js"></script>  </li>
+    </ol>
+  </body>
+</html>
+

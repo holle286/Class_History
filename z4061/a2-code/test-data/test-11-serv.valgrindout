@@ -1,0 +1,5 @@
+==5943== Memcheck, a memory error detector
+==5943== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==5943== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==5943== Command: ../bl_server test-11-serv
+==5943== 

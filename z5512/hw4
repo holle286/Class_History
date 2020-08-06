@@ -1,0 +1,64 @@
+from random import choices
+from collections import Counter
+
+prob2_1 = 50;
+prob1_3 = -50;
+prob2_2 = 0;
+prob3_2 = -3;
+prob2_3 = -1;
+prob3_3 = -10;
+prob2_4 = -3;
+prob3_4 = -2;
+gamma = .8;
+
+def main():
+    for i in range(0,10):    
+        tprob2_2 = prob2_2 + gamma * max(
+             (prob2_1 * .7 + prob2_2 * .15 + prob3_2 * .15), #up
+             (prob2_2 * .7 + prob2_1 * .15 + prob2_3 * .15), #left
+             (prob2_3 * .7 + prob2_2 * .15 + prob3_2 * .15), #down
+             (prob3_2 * .7 + prob2_1 * .15 + prob2_3 * .15)) #right
+        tprob3_2 = prob3_2 + gamma * max(
+            (prob3_2 * .7 + prob3_2 * .15 + prob2_2 * .15),
+            (prob2_2 * .7 + prob3_2 * .15 + prob3_3 * .15),
+            (prob3_3 * .7 + prob2_2 * .15 + prob3_2 * .15),
+            (prob3_2 * .7 + prob3_3 * .15 + prob3_2 * .15))
+        tprob2_3 = prob2_3 + gamma * max(
+            (prob2_2 * .7 + prob3_3 * .15 + prob1_3 * .15),
+            (prob1_3 * .7 + prob2_4 * .15 + prob2_2 * .15),
+            (prob2_4 * .7 + prob1_3 * .15 + prob3_3 * .15),
+            (prob3_3 * .7 + prob2_4 * .15 + prob2_2 * .15))
+        tprob3_3 = prob3_3 + gamma * max(
+            (prob3_2 * .7 + prob2_3 * .15 + prob3_3 * .15),
+            (prob2_3 * .7 + prob3_2 * .15 + prob3_4 * .15),
+            (prob3_4 * .7 + prob2_3 * .15 + prob3_3 * .15),
+            (prob3_3 * .7 + prob3_2 * .15 + prob3_4 * .15))
+        tprob2_4 = prob2_4 + gamma * max(
+            (prob2_3 * .7 + prob2_4 * .15 + prob3_4 * .15),
+            (prob2_4 * .7 + prob2_3 * .15 + prob2_4 + .15),
+            (prob2_4 * .7 + prob2_4 * .15 + prob3_4 * .15),
+            (prob3_4 * .7 + prob2_3 * .15 + prob2_4 * .15))
+        tprob3_4 = prob3_4 + gamma * max(
+            (prob3_3 * .7 + prob2_4 * .15 + prob3_4 * .15),
+            (prob2_4 * .7 + prob3_3 * .15 + prob3_4 * .15),
+            (prob3_4 * .7 + prob2_4 * .15 + prob3_4 * .15),
+            (prob3_4 * .7 + prob3_3 * .15 + prob3_4 * .15))
+
+        prob2_2 = tprob2_2;
+        prob3_2 = tprob3_2;
+        prob2_3 = tprob2_3;
+        prob3_3 = tprob3_3;
+        prob2_4 = tprob2_4;
+        prob3_4 = tprob3_4;
+
+        print('b   50   b')
+        print('b   ', prob2_2, "   ", prob3_2)
+        print(prob1_3, '   ', prob2_3, '   ', prob3_3)
+        print('b   ', prob2_4, '   ', prob3_4)
+        
+        
+    return 0
+
+if __name__ == '__main__':
+    main()
+

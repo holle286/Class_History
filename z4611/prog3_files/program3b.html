@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html><head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Programming Assignment 2: Surface of Revolution</title>
+
+        <script id="vertex-shader" type="x-shader/x-vertex">
+
+            attribute vec3 vPosition;
+            attribute vec3 vNormal;
+            attribute vec2 vTexCoord;
+            varying vec4 triangleColor;
+            varying float flag;
+
+            uniform vec4 AmbientProduct, DiffuseProduct, SpecularProduct;
+
+            uniform mat4 modelView;
+            uniform mat4 projection;
+
+            uniform vec4 LightPosition;
+            uniform float Shininess;
+            varying vec2 texCoord;
+
+            uniform sampler2D texMap;
+
+            void main()
+            {
+                vec3 pos = (modelView * vec4(vPosition, 1.0)).xyz;
+
+                vec3 L = normalize(LightPosition.xyz - pos);
+                vec3 E = normalize(-pos);
+                vec3 H = normalize(L + E);
+
+                // Transform vertex normal into eye coordinates
+                vec3 N = normalize(vec3(modelView *
+                   vec4(vNormal, 0)));
+
+                // Compute terms in the illumination equation
+                vec4 ambient = AmbientProduct;
+
+                float Kd = max( dot(L, N), 0.0 );
+                vec4  diffuse = Kd*DiffuseProduct;
+
+                float Ks = pow( max(dot(N, H), 0.0),
+                					 Shininess );
+                vec4  specular = Ks * SpecularProduct;
+                if( dot(L, N) < 0.0 )
+                   specular = vec4(0.0, 0.0, 0.0, 1.0);
+
+                gl_Position = projection *
+                			modelView * vec4(vPosition, 1.0);
+
+                triangleColor = ambient + diffuse + specular;
+                triangleColor.a = 1.0;
+                texCoord = vTexCoord;
+                flag = Shininess;
+            }
+
+        </script>
+
+        <script id="fragment-shader" type="x-shader/x-fragment">
+            precision mediump float;
+
+            varying vec4 triangleColor;
+            varying vec2 texCoord;
+            varying float flag;
+            uniform sampler2D texMap;
+            void main()
+            {
+                if(flag == 1.0) {
+                    gl_FragColor = triangleColor * texture2D( texMap, texCoord );
+                } else {
+                    gl_FragColor = triangleColor;
+                }
+            }
+        </script>
+
+        <script type="text/javascript" src="program3b_files/webgl-utils.js"></script>
+        <script type="text/javascript" src="program3b_files/initShaders.js"></script>
+        <script type="text/javascript" src="program3b_files/MV.js"></script>
+        <script type="text/javascript" src="program3b_files/program3.js"></script>
+    </head>
+
+    <body>
+        <canvas id="gl-canvas" width="512" height="400">
+            Oops ... your browser doesn't support the HTML5 canvas element
+        </canvas>
+        <img id="tile-img" src="program3b_files/DsJDMHZ.png" crossorigin="anonymous" hidden="hidden">
+        <div>
+            Shape:
+            <select id="shape-select">
+                <option value="profile1">Profile 1</option>
+                <option value="profile2">Profile 2</option>
+                <option value="profile3" selected="selected">Profile 3</option>
+                <option value="profile4">Profile 4</option>
+                <option value="profile5">Profile 5</option>
+            </select>
+        </div>
+        <div>
+            Number of angles: <input id="numAngles" type="number" value="8" min="3" max="25" step="1">
+        </div>
+        <div>
+            Number of steps per curve: <input id="stepsPerCurve" type="number" value="6" min="2" max="10" step="1">
+        </div>
+        <div>
+            Material:
+            <select id="material">
+                <option value="plastic">Yellow Plastic</option>
+                <option value="brass">Brass Metal</option>
+                <option value="texture" selected="selected">Texture Map</option>
+            </select>
+        </div>
+    
+
+</body></html>

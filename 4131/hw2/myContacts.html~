@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel = "stylesheet" type = "text/css" href = "style.css">
+    <meta charset="utf-8"/>
+    <title> My Contacts </title>
+    <script type = "text/javascript">
+      function showHansPic(num) {
+      bigpic = document.getElementById("big");
+      if(parseInt(num) == 1)
+      {
+      bigpic.src = "harshit.jpg";
+      bigpic.alt = "Here's hansong";
+      }
+      }
+      function showTyPic(num) {
+      bigpic = document.getElementById("big");
+      if(parseInt(num) == 1)
+      {
+      bigpic.src = "ruofeng.jfif";
+      bigpic.alt = "Here's Tyler";
+      }
+      }
+      function showNickPic(num) {
+      bigpic = document.getElementById("big");
+      if(parseInt(num) == 1)
+      {
+      bigpic.src = "yang.jfif";
+      bigpic.alt = "Here's Nick";
+      }
+      }
+    </script>
+  </head>
+  <body>
+    <nav>
+      <p> <a href = "myContacts.html">My Places </a> </p>
+      <p> <a href = "myWidgets.html">My Widgets </a> </p>
+      <p> <a href = "myForm.html">My Form </a> </p>
+    </nav>
+    <h1> My Contacts </h1>
+    <div class = "row">
+      <div class = "column">
+	<table>
+	  <tr>
+	    <th> Name </th>
+	    <th> Email </th>
+	    <th> Address </th>
+	    <th> Phone Number </th>
+	    <th> Favorite Place </th>
+	  </tr>
+	  <tr onmouseover = "showHansPic(1)">
+	    <td  onmouseover = "showHansPic(1)"> Hansong Fu  <img id="img" src= "harshit.jpg" alt = "Hansong">  </td> 
+	    <td> fuxxx396@umn.edu </td>
+	    <td> 920 Delaware Street SE </td>
+	    <td> 224-643-8954 </td>
+	    <td> <a href = "https://www.google.com/maps/place/Lind+Hall,+207+Church+St+SE,+Minneapolis,+MN+55455/@44.9744394,-93.2357495,17z/data=!3m1!4b1!4m5!3m4!1s0x52b32d164ec1d643:0x6d4ead1a09923dbe!8m2!3d44.9744394!4d-93.2335608">Lind Hall </a> </td>
+	  <tr onmouseover = "showTyPic(1)">
+	    <td onmouseover = "showTyPic(1)"> Tyler Deng <img id="img" src= "ruofeng.jfif" alt = "Tyler"> </td>
+	    <td> tdeng586@umn.edu </td>
+	    <td> 319 15th Ave SE </td>
+	    <td> 224-523-4604 </td>
+	    <td> <a href = "https://www.google.com/maps/place/Kenneth+H.+Keller+Hall/@44.9746901,-93.2342684,17z/data=!3m1!4b1!4m5!3m4!1s0x52b32d17b0db0b6f:0x11e70f2b371279c9!8m2!3d44.9746863!4d-93.2320744">Keller </a> </td>
+	  </tr>
+	  <tr onmouseover = "showNickPic(1)">
+	    <td onmouseover = "showNickPic(1)"> Nick Holleran <img id="img" src= "yang.jfif" alt = "Nick"></td>
+	    <td> holle286@umn.edu </td>
+	    <td> 920 Delaware Street SE </td>
+	    <td> 847-902-1811 </td>
+	    <td> <a href = "https://www.google.com/maps/search/taco+bell/@45.0036789,-93.2283669,19z">Taco Bell </a> </td>
+	  </tr>
+	</table>
+      </div>
+      <div class = "column">
+	<img id = "big" src = "gophers-mascot.png" alt = "heres goldy" height = 300px width = 300px>
+      </div>
+    </div>
+  </body>
+</html>
+
